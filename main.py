@@ -10,7 +10,7 @@ while True:
 
     if menu == 1:
         os.system("cls" if os.name == "nt" else "clear")
-        print("1")
+        print("Caculando PTAM")
 
     elif menu == 2:
         while menu == 2:
@@ -36,7 +36,7 @@ while True:
                 
     elif menu == 3:
         os.system("cls" if os.name == "nt" else "clear")
-        print("3")
+        print("Adicionando valor de M²")
 
     else:
         os.system("cls" if os.name == "nt" else "clear")
