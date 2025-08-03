@@ -22,20 +22,23 @@ while True:
             if rua_busca in enderecos and cidade_busca in enderecos[rua_busca]["cidade"] and tipo_imovel_busca in enderecos[rua_busca]["tipo_imovel"]:
                 valor_m2 = enderecos[rua_busca]["valor_m2"]
 
-            valor_terreno = area * valor_m2
-            valor_foro = valor_terreno * 0.003
-            valor_laudemio = valor_terreno * 0.025
-            valor_dominio = valor_terreno * 0.12
+                valor_terreno = area * valor_m2
+                valor_foro = valor_terreno * 0.003
+                valor_laudemio = valor_terreno * 0.025
+                valor_dominio = valor_terreno * 0.12
 
-            print(f"Segue valores calculados: \n Valor do Terreno: {valor_terreno:.2f} \n Foro: {valor_foro:.2f} \n Laudemio: {valor_laudemio:.2f} \n Dominio: {valor_dominio:.2f}  ")
-            resposta = input("Gostaria de calcular outro PTAM? (s/n): ").strip().lower()
-            if resposta == "sim" or resposta == "s":
-                menu = 1
+                print(f"Segue valores calculados: \n Valor do Terreno: {valor_terreno:.2f} \n Foro: {valor_foro:.2f} \n Laudemio: {valor_laudemio:.2f} \n Dominio: {valor_dominio:.2f}  ")
+                resposta = input("Gostaria de calcular outro PTAM? (s/n): ").strip().lower()
+                if resposta == "sim" or resposta == "s":
+                    menu = 1
             else:
-                break
-        
-
-
+                os.system("cls" if os.name == "nt" else "clear")
+                print("Imóvel não encontrado ou informações incorretas.")
+                resposta = input("Gostaria de tentar novamente? (s/n): ").strip().lower()
+                if resposta == "sim" or resposta == "s":
+                    menu = 1
+                else:
+                    break
 
     elif menu == 2:
         while menu == 2:
