@@ -9,8 +9,14 @@ while True:
     menu = int(input(""))
 
     if menu == 1:
-        os.system("cls" if os.name == "nt" else "clear")
-        print("Caculando PTAM")
+        while menu == 1:
+            os.system("cls" if os.name == "nt" else "clear")
+            rua_busca = input("Digite a Rua de objeto: ").lower()
+            cidade_busca = input("Digite a cidade do objeto: ").lower()
+            tipo_imovel_busca = input("Digite o tipo de imóvel: ").lower()
+            area = float(input("Digite a área do imóvel em m²: ").replace(",", "."))
+
+            
 
     elif menu == 2:
         while menu == 2:
