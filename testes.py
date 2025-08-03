@@ -1,11 +1,7 @@
-import json
+from unidecode import unidecode
 
-rua_busca = "Santa Maria Goretti"
-cidade_busca = "caruaru"
-tipo_imovel_busca = "comercial"
+texto = input("Digite um texto com acentos: ")
+texto_sem_acentos = unidecode(texto)
 
-with open("informacoes/enderecos.json", "r") as enderecos:
-    enderecos = json.load(enderecos)
-if rua_busca in enderecos and cidade_busca in enderecos[rua_busca]["cidade"] and tipo_imovel_busca in enderecos[rua_busca]["tipo_imovel"]:
-    valor_m2 = enderecos[rua_busca]["valor_m2"]
-    print(valor_m2)
+print("Texto original:", texto)
+print("Texto sem acentos:", texto_sem_acentos)

@@ -1,6 +1,6 @@
 import json
 import os
-
+from unidecode import unidecode
 
 while True:
     os.system("cls" if os.name == "nt" else "clear")
@@ -11,17 +11,29 @@ while True:
     if menu == 1:
         while menu == 1:
             os.system("cls" if os.name == "nt" else "clear")
-            rua_busca = input("Digite a Rua de objeto: ").lower()
-            cidade_busca = input("Digite a cidade do objeto: ").lower()
-            tipo_imovel_busca = input("Digite o tipo de imóvel: ").lower()
+            valor_m2 = 0.0
+            rua_busca = unidecode(input("Digite a Rua de objeto: ").lower().replace("rua", "").strip())
+            cidade_busca = unidecode(input("Digite a cidade do objeto: ").lower())
+            tipo_imovel_busca = unidecode(input("Digite o tipo de imóvel: ").lower())
             area = float(input("Digite a área do imóvel em m²: ").replace(",", "."))
 
             with open("informacoes/enderecos.json", "r") as enderecos:
                 enderecos = json.load(enderecos)
             if rua_busca in enderecos and cidade_busca in enderecos[rua_busca]["cidade"] and tipo_imovel_busca in enderecos[rua_busca]["tipo_imovel"]:
                 valor_m2 = enderecos[rua_busca]["valor_m2"]
-                
+
             valor_terreno = area * valor_m2
+            valor_foro = valor_terreno * 0.003
+            valor_laudemio = valor_terreno * 0.025
+            valor_dominio = valor_terreno * 0.12
+
+            print(f"Segue valores calculados: \n Valor do Terreno: {valor_terreno:.2f} \n Foro: {valor_foro:.2f} \n Laudemio: {valor_laudemio:.2f} \n Dominio: {valor_dominio:.2f}  ")
+            resposta = input("Gostaria de calcular outro PTAM? (s/n): ").strip().lower()
+            if resposta == "sim" or resposta == "s":
+                menu = 1
+            else:
+                break
+        
 
 
 
