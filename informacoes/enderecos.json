@@ -7,5 +7,14 @@
         "comercial": {
             "valor_m2_comercial": 100.0
         }
+    },
+    "julio demetrio": {
+        "cidade": "gravata",
+        "residencial": {
+            "valor_m2_residencial": 800.0
+        },
+        "comercial": {
+            "valor_m2_comercial": 0.0
+        }
     }
 }

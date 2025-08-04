@@ -31,7 +31,7 @@ while True:
                 valor_laudemio = valor_terreno * 0.025
                 valor_dominio = valor_terreno * 0.12
 
-                print(f"Segue valores calculados: \n Valor do Terreno: {valor_terreno:.2f} \n Foro: {valor_foro:.2f} \n Laudemio: {valor_laudemio:.2f} \n Dominio: {valor_dominio:.2f}  ")
+                print(f"Segue valores calculados: \n Valor do Terreno: {valor_terreno:.2f} \n Foro: {valor_foro:.2f} \n Foro últimos 5 anos: {valor_foro * 5:.2f} \n Laudemio: {valor_laudemio:.2f} \n Dominio: {valor_dominio:.2f}  ")
                 resposta = input("Gostaria de calcular outro PTAM? (s/n): ").strip().lower()
                 if resposta == "sim" or resposta == "s":
                     menu = 1
@@ -85,8 +85,8 @@ while True:
             if rua_cadastro not in enderecos:
                 enderecos[rua_cadastro] = {
                     "cidade": cidade_cadastro,
-                    "residencial": {"valor_m2_residencial": null},
-                    "comercial": {"valor_m2_comercial": null}
+                    "residencial": {"valor_m2_residencial": 0.0},
+                    "comercial": {"valor_m2_comercial": 0.0}
                 }
             else:
                 enderecos[rua_cadastro]["cidade"] = cidade_cadastro
