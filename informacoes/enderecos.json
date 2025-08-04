@@ -16,5 +16,14 @@
         "comercial": {
             "valor_m2_comercial": 0.0
         }
+    },
+    "goncalves ledo": {
+        "cidade": "caruaru",
+        "residencial": {
+            "valor_m2_residencial": 800.0
+        },
+        "comercial": {
+            "valor_m2_comercial": 1100.0
+        }
     }
 }
