@@ -1,8 +1,11 @@
 {
-    "ola": {
+    "joao": {
         "cidade": "caruaru",
-        "tipo_imovel": "comercial",
-        "valor_m2": 1000
+        "residencial": {
+            "valor_m2_residencial": 200.0
+        },
+        "comercial": {
+            "valor_m2_comercial": 100.0
+        }
     }
-
 }
