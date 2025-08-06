@@ -1,6 +1,7 @@
 import json
 import os
 from unidecode import unidecode
+import funcoes.funcoes_calculos
 
 enderecos = {}
 valor_m2_residencial = 0.0
@@ -26,10 +27,7 @@ while True:
             if rua_busca in arquivo_enderecos and cidade_busca in arquivo_enderecos[rua_busca]["cidade"]:
                 valor_m2 = arquivo_enderecos[rua_busca][tipo_imovel_busca][f"valor_m2_{tipo_imovel_busca}"]
 
-                valor_terreno = area * valor_m2
-                valor_foro = valor_terreno * 0.003
-                valor_laudemio = valor_terreno * 0.025
-                valor_dominio = valor_terreno * 0.12
+                valor_terreno, valor_foro, valor_laudemio, valor_dominio = funcoes.funcoes_calculos.calcular_taxas(area, valor_m2)
 
                 print(f"Segue valores calculados: \n Valor do Terreno: {valor_terreno:.2f} \n Foro: {valor_foro:.2f} \n Foro últimos 5 anos: {valor_foro * 5:.2f} \n Laudemio: {valor_laudemio:.2f} \n Dominio: {valor_dominio:.2f}  ")
                 resposta = input("Gostaria de calcular outro PTAM? (s/n): ").strip().lower()
