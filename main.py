@@ -48,7 +48,7 @@ while True:
     elif menu == 2:
         while menu == 2:
             os.system("cls" if os.name == "nt" else "clear")
-            valor_terreno = float(input("Digite o valor do Terreno: R$ "))
+            valor_terreno = float(input("Digite o valor do Terreno: R$ ").replace(",", "."))
             quantidade_foros = int(input("Digite a quantidade de anos de Foro a ser considerado (máx 5 anos): "))
             if quantidade_foros > 5:
                 print("Quantidade de anos de Foro não pode ser maior que 5.")
@@ -84,7 +84,7 @@ while True:
                             break
                     elif taxas_escolhidas == 3:
                         print("----------------------------------------------------")
-                        print(f"Desconto de 10% sobre o Foro, Laudêmio e Dominio: R$ {((valor_foro * quantidade_foros) + valor_laudemio + valor_dominio) - (((valor_foro * quantidade_foros) + valor_laudemio + valor_dominio) * 0.1):.2f} \nDesconto de 8% sobre o Foro e Laudêmio, com parcelamento de 3 vezes sobre Domínio: R$ {((valor_foro * quantidade_foros) + valor_laudemio) - (((valor_foro * quantidade_foros) + valor_laudemio) * 0.08):.2f} + 3x R$ {valor_dominio / 3:.2f}")
+                        print(f"Desconto de 8% sobre o Foro, Laudêmio e Dominio: R$ {((valor_foro * quantidade_foros) + valor_laudemio + valor_dominio) - (((valor_foro * quantidade_foros) + valor_laudemio + valor_dominio) * 0.08):.2f} \nDesconto de 8% sobre o Foro e Laudêmio, com parcelamento de 3 vezes sobre Domínio: R$ {((valor_foro * quantidade_foros) + valor_laudemio) - (((valor_foro * quantidade_foros) + valor_laudemio) * 0.08):.2f} + 3x R$ {valor_dominio / 3:.2f}")
                         print("----------------------------------------------------")
                         teste = input("Gostaria de calcular outro desconto? (s/n): ").strip().lower()
                         if teste == "sim" or teste == "s":
@@ -131,7 +131,8 @@ while True:
                 enderecos[rua_cadastro] = {
                     "cidade": cidade_cadastro,
                     "residencial": {"valor_m2_residencial": 0.0},
-                    "comercial": {"valor_m2_comercial": 0.0}
+                    "comercial": {"valor_m2_comercial": 0.0},
+                    "apartamento": {"valor_m2_apartamento": 0.0}
                 }
             else:
                 enderecos[rua_cadastro]["cidade"] = cidade_cadastro
@@ -146,6 +147,9 @@ while True:
 
             elif tipo_imovel_cadastro == "comercial":
                 enderecos[rua_cadastro]["comercial"]["valor_m2_comercial"] = valor_m2_cadastro
+
+            elif tipo_imovel_cadastro == "apartamento":
+                enderecos[rua_cadastro]["apartamento"]["valor_m2_apartamento"] = valor_m2_cadastro
 
             else:
                 print("Tipo de imóvel inválido. Por favor, escolha 'comercial' ou 'residencial'.")
